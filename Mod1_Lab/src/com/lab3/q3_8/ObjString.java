@@ -15,18 +15,18 @@ public class ObjString {
 					{
 						str[i1] = str[i1].toUpperCase();
 					}
-					for(int i2 = str[i].length();i2<str[i].length()/2;i2--)
+					for(int i2 = str[i].length()/2;i2<str[i].length();i2++)
 					{
 						str[i2] = str[i2].toLowerCase();
 					}
 				}
 				else
 				{
-					for(int i1 = 0;i1<str[i].length()/2;i1++)
+					for(int i1 = 0;i1<(str[i].length()/2)+1;i1++)
 					{
 						str[i1] = str[i1].toUpperCase();
 					}
-					for(int i2 = str[i].length();i2<str[i].length()/2+1;i2--)
+					for(int i2 = (str[i].length()/2)+1;i2<str[i].length();i2++)
 					{
 						str[i2] = str[i2].toLowerCase();
 					}

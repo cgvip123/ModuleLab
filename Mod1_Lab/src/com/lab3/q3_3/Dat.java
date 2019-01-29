@@ -3,7 +3,6 @@ package com.lab3.q3_3;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
-import java.util.Scanner;
 
 public class Dat {
 

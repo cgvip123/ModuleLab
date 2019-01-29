@@ -17,6 +17,7 @@ public class Register {
 		Register r = new Register();
 		Scanner sc = new Scanner(System.in);
 		String st = sc.nextLine();
+		sc.close();
 		String str = st+"_job";
 		System.out.println(r.validate(str));
 	}

@@ -2,18 +2,19 @@ package com.lab4.q4_2;
 
 public class CurrentAcc extends Account {
 
-		private double overDraft;
+		private double overDraft = -1000;
 		
 		@Override
 		public void withdraw(double bal)
 		{
-			if(overDraft>8000)
+			if(balance-bal>=overDraft)
 			{
-				return true;
+				balance -= bal;
 			}
 			else
 			{
-				return;
+				System.out.println("you reached overdraft limit");
+				System.out.println("you can withdraw only:"+(balance-overDraft));
 			}
 		}
 }

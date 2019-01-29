@@ -17,11 +17,14 @@ public class PersonMain {
 			System.out.println("--------------------------------");
 			System.out.println(p1.getName()+"\n"+p1.getAccNum()+"\n"+p1.getAge()+"\n"+p1.getBalance());
 			p.deposit(2000);
-			p1.withdraw(2000);
+			p1.withdraw(4000);
 			System.out.println("--------------------------------");
 			System.out.println(p.getName()+"\n"+p.getAccNum()+"\n"+p.getAge()+"\n"+p.getBalance());
 			System.out.println("--------------------------------");
 			System.out.println(p1.getName()+"\n"+p1.getAccNum()+"\n"+p1.getAge()+"\n"+p1.getBalance());
+			System.out.println("---------------------------------");
+			System.out.println(p);
+			System.out.println(p1);
 	}
 
 }

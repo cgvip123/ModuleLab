@@ -16,6 +16,7 @@ public class ZoneFind {
 			ZoneFind zf = new ZoneFind();
 			Scanner sc = new Scanner(System.in);
 			String str = sc.nextLine();
+			sc.close();
 			System.out.println(zf.Zoney(str));
 		}
 }

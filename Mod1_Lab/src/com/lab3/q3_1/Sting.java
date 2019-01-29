@@ -12,6 +12,7 @@ public class Sting {
 		System.out.println("1. Add String\n 2.Replace String\n 3.Remove Duplicates \n 4.Upper String");
 		int ch= sc.nextInt();
 		
+		sc.close();
 		switch(ch)
 		{
 		case 1: System.out.println(sm.addi(str));

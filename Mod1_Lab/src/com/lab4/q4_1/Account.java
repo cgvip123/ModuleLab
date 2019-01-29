@@ -23,7 +23,7 @@ public class Account {
 		}
 		public void withdraw(double bal)
 		{
-			if(balance>=bal)
+			if(balance>=500 && balance>=bal)
 			{
 				balance-=bal;
 			}
@@ -39,7 +39,7 @@ public class Account {
 		}
 		@Override
 		public String toString() {
-			return "";
+			return "Account no=" + accNum + ", balance=" + balance ;
 		}
 		
 		

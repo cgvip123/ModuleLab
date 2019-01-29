@@ -21,6 +21,7 @@ public class StringOp {
 		// TODO Auto-generated method stub
 		Scanner sc = new Scanner(System.in);
 		String str = sc.nextLine();
+		sc.close();
 		StringOp op = new StringOp();
 		System.out.println(op.check(str));
 	}

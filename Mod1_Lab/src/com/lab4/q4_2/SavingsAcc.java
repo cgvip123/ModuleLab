@@ -6,9 +6,9 @@ public class SavingsAcc extends Account {
 	@Override
 	public void withdraw(double bal)
 	{
-		if(minBal>=bal)
+		if(balance-bal>=minBal)
 		{
-			balance+=bal;
+			balance-=bal;
 		}
 		else
 		{

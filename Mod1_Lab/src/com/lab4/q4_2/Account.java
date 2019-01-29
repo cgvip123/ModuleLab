@@ -5,7 +5,7 @@ import java.util.Random;
 public class Account {
 
 	Random rand = new Random();
-	private long accNum = rand.nextLong()+1;
+	private long accNum = rand.nextInt(999999)+1;
 	protected double balance;
 	public long getAccNum() {
 		return accNum;
@@ -23,13 +23,6 @@ public class Account {
 	}
 	public void withdraw(double bal)
 	{
-		if(balance>=bal)
-		{
 			balance-=bal;
-		}
-		else
-		{
-			System.out.println("Insufficient money");
-		}
 	}
 }
