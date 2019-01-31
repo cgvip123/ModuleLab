@@ -8,11 +8,11 @@ public class PersonMain {
 		Account cv = new CurrentAcc();
 		cv.setBalance(4000);
 		sv.setBalance(5000);
-		sv.withdraw(2000);
+		sv.withdraw(4000);
 		System.out.println(sv.getAccNum()+"\n"+sv.getBalance());
 		System.out.println("------------------------------");
 		System.out.println(cv.getAccNum()+"\n"+cv.getBalance());
-		cv.withdraw(5500);
+		cv.withdraw(6000);
 	}
 
 }
