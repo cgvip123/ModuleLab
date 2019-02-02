@@ -1,8 +1,8 @@
 package com.lab6_3.cg.eis.pl;
 
-import com.lab5_1.cg.eis.bean.Employee;
 import com.lab5_1.cg.eis.service.Services;
 import com.lab6_3.cg.eis.exception.EmployeeException;
+import com.lab7_6.cg.eis.bean.Employee;
 
 public class EmployeeMain {
 

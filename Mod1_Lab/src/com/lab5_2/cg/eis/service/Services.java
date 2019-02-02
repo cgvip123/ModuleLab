@@ -1,6 +1,6 @@
 package com.lab5_2.cg.eis.service;
 
-import com.lab5_1.cg.eis.bean.Employee;
+import com.lab7_6.cg.eis.bean.Employee;
 
 public class Services implements EmployeeService {
 		@Override

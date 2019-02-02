@@ -1,4 +1,4 @@
-package com.lab5_2.cg.eis.service;
+package com.lab7_6.cg.eis.service;
 
 import com.lab7_6.cg.eis.bean.Employee;
 
