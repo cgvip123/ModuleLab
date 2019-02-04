@@ -2,24 +2,16 @@ package com.lab7_6.cg.eis.bean;
 
 public class Employee {
 
-		private int id;
 		private String name;
 		private double salary;
 		private String designation;
-		private char insurScheme;
+		private String insurScheme;
 		
-		public Employee(int id, String name, double salary, String designation, char insurScheme) {
-			this.id = id;
+		public Employee( String name, double salary, String designation, String insurScheme) {
 			this.name = name;
 			this.salary = salary;
 			this.designation = designation;
 			this.insurScheme = insurScheme;
-		}
-		public int getId() {
-			return id;
-		}
-		public void setId(int id) {
-			this.id = id;
 		}
 		public void setName(String name) {
 			this.name = name;
@@ -30,7 +22,7 @@ public class Employee {
 		public void setDesignation(String designation) {
 			this.designation = designation;
 		}
-		public void setInsurScheme(char insurScheme) {
+		public void setInsurScheme(String insurScheme) {
 			this.insurScheme = insurScheme;
 		}
 		public String getName() {
@@ -42,8 +34,12 @@ public class Employee {
 		public String getDesignation() {
 			return designation;
 		}
-		public char getInsurScheme() {
+		public String getInsurScheme() {
 			return insurScheme;
 		}
-		
+		@Override
+		public String toString() {
+			return "Employee [name=" + name + ", salary=" + salary + ", designation=" + designation + ", insurScheme="
+					+ insurScheme + "]";
+		}
 }
