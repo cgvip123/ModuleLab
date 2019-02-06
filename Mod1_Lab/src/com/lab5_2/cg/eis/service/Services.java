@@ -1,14 +1,13 @@
 package com.lab5_2.cg.eis.service;
 
-import com.lab7_6.cg.eis.bean.Employee;
+import com.lab5_2.cg.eis.bean.Employee;
 
 public class Services implements EmployeeService {
-		@Override
+
 		public Employee EmployeeDetails(int id, String name, double salary, String designation, char insurScheme) {
 			Employee emp = new Employee(id,name,salary,designation,insurScheme);
 			return emp;
 		}
-		@Override
 		public void insureScheme(double salary, String designation,Employee emp) {
 			
 			if((salary>5000 && salary<20000) && designation.equals("System Associate"))
@@ -33,6 +32,7 @@ public class Services implements EmployeeService {
 						System.out.println("id:"+emp.getId()+"\n"+"Name:"+emp.getName()+"\n"+"Salary:"+emp.getSalary()+"\n"+
 											"Designation:"+emp.getDesignation()+"\n"+"InsuranceScheme:"+emp.getInsurScheme());
 		}
+		
 		
 		
 
