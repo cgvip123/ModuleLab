@@ -1,10 +1,20 @@
 package com.wallet.bean;
 
+import java.util.ArrayList;
+
 public class Customer {
 
 	private String name;
 	private String phone;
 	private Wallet wallet;
+	private ArrayList<Transaction> al = new ArrayList<>();
+	
+	public ArrayList<Transaction> getAl() {
+		return al;
+	}
+	public void setAl(ArrayList<Transaction> al) {
+		this.al = al;
+	}
 	public String getName() {
 		return name;
 	}

@@ -1,12 +1,14 @@
 package com.wallet.repo;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Map.Entry;
 
 import com.wallet.bean.Customer;
+import com.wallet.bean.Transaction;
 import com.wallet.exception.CustomerNotFoundException;
 import com.wallet.exception.DuplicatePhoneException;
+
 
 public class WalletRepo implements IWalletRepo {
 
@@ -26,18 +28,25 @@ public class WalletRepo implements IWalletRepo {
 	
 	public Customer showByPhone(String phone) throws CustomerNotFoundException
 	{
-		for(Entry<String,Customer> m: hm.entrySet())
-		{
-			if(m.getValue().getPhone().equals(phone))
+			if(hm.containsKey(phone))
 			{
-				 return m.getValue();
+				 return hm.get(phone);
 			}
-		}
 		throw new CustomerNotFoundException();
 	}
 	
-	public Map<String,Customer> retriveAllDetails()
+	public ArrayList<Transaction> retriveAllDetails(String phone) 
 	{
-		return hm;
+		return hm.get(phone).getAl();
+	}
+	
+	public boolean saveTransaction(String mobileNo, Transaction t) throws CustomerNotFoundException
+	{
+		if(hm.containsKey(mobileNo))
+		{
+			hm.get(mobileNo).getAl().add(t);
+			return true;
+		}
+		throw new CustomerNotFoundException();
 	}
 }

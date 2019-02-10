@@ -4,22 +4,22 @@ import java.math.BigDecimal;
 
 public class Transaction {
 
-	private int senderId;
-	private int recieverId;
+	private String senderPhone;
+	private String recieverPhone;
 	private BigDecimal balance;
 	public enum TransactionType{deposit,withdraw,fundtransfer_to,fundTransfer_from};
 	private TransactionType transType;
-	public int getSenderId() {
-		return senderId;
+	public String getSenderPhone() {
+		return senderPhone;
 	}
-	public void setSenderId(int senderId) {
-		this.senderId = senderId;
+	public void setSenderPhone(String senderPhone) {
+		this.senderPhone = senderPhone;
 	}
-	public int getRecieverId() {
-		return recieverId;
+	public String getRecieverPhone() {
+		return recieverPhone;
 	}
-	public void setRecieverId(int recieverId) {
-		this.recieverId = recieverId;
+	public void setRecieverPhone(String recieverPhone) {
+		this.recieverPhone = recieverPhone;
 	}
 	public BigDecimal getBalance() {
 		return balance;
@@ -33,4 +33,18 @@ public class Transaction {
 	public void setTransType(TransactionType transType) {
 		this.transType = transType;
 	}
+	@Override
+	public String toString() {
+		if(transType==TransactionType.deposit || transType==TransactionType.withdraw) {
+			return "Transaction Details-----------"+"\n"+"Holder Number:"+senderPhone+"\n"+"Amount:"+balance+"\n"+"Transaction Type:"+transType+"\n";
+		}
+		else
+		{
+			return "Transaction Details-----------" +"\n"+"SenderPhoneNo.:"+ senderPhone +"\n"+ "RecieverPhoneNo.:" + recieverPhone +"\n"+ "Amount:" + balance
+					+"\n"+ "Transaction Type" + transType + "\n";
+			
+		}
+	}
+	
+	
 }

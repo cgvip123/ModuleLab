@@ -1,13 +1,13 @@
 package com.wallet.view;
 
 import java.math.BigDecimal;
-import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Scanner;
 
 import com.wallet.bean.Customer;
 import com.wallet.exception.CustomerNotFoundException;
 import com.wallet.exception.DuplicatePhoneException;
+import com.wallet.exception.InsuffiecientBalanceException;
+import com.wallet.exception.NoTransactionOccurException;
 import com.wallet.repo.WalletRepo;
 import com.wallet.service.WalletService;
 
@@ -47,27 +47,84 @@ public class MainClass {
 				getDetails();
 				break;
 		case 4: withdrawAmount();
-				break;		
+				break;
+		case 5: fundTransfer();
+				break;
+		case 6: printTransaction();
+				break;
 		case 7:
 			System.exit(0);
+		}
+	}
+
+	private static void printTransaction() {
+		// TODO Auto-generated method stub
+		System.out.println("Enter the phone");
+		String phone = sc.nextLine();
+		if(ws.isvalidPhone(phone))
+		{
+			try {	
+						System.out.println(ws.getDetails(phone));
+			} catch (NoTransactionOccurException | CustomerNotFoundException e) {
+				// TODO Auto-generated catch block
+				System.out.println(e);
+			}
+		}
+		else
+		{
+			System.err.println("wrong mobile input");
+		}
+	}
+
+	private static void fundTransfer() {
+		// TODO Auto-generated method stub
+		Customer c = new Customer();
+		System.out.println("Enter the sender phone:");
+		String senderPhone = sc.nextLine();
+		if(ws.isvalidPhone(senderPhone))
+		{
+			System.out.println("Enter the reciever phone:");
+			String recieverPhone = sc.nextLine();
+			if(ws.isvalidPhone(recieverPhone))
+			{
+				System.out.println("Enter the balance to transfer");
+				String amountTransfer = sc.nextLine();
+				BigDecimal amount = new BigDecimal(amountTransfer);
+				try {
+					//System.out.println("Account Holder"+c.getName()+"\n"+"Phone"+c.getPhone()+"\n"+"balance:"+c.getWallet().getBalance());
+					c = ws.fundTransfer(senderPhone, recieverPhone, amount);
+					System.out.println("Account Holder:"+c.getName()+"\n"+"Phone"+c.getPhone()+"\n"+"balance:"+c.getWallet().getBalance());
+				} catch (CustomerNotFoundException | InsuffiecientBalanceException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+			else
+			{
+				System.err.println("wrong mobile input");
+			}
+		}
+		else
+		{
+			System.err.println("wrong mobile input");
 		}
 	}
 
 	private static void withdrawAmount() {
 		// TODO Auto-generated method stub
 		Customer c = new Customer();
-		System.out.println("Enter the phone no to deposit:");
+		System.out.println("Enter the phone no to withdraw:");
 		String phone = sc.nextLine();
 		if(ws.isvalidPhone(phone))
 		{
-			System.out.println("enter the amount to deposit");
+			System.out.println("enter the amount to withdraw:");
 			String balance = sc.nextLine();
 			BigDecimal amount = new BigDecimal(balance);
 			try {
-				c = ws.depositAmount(phone, amount);
+				c = ws.withdrawAmount(phone, amount);
 				System.out.println("---------After withdraw----------");
 				System.out.println("Account holdee:"+c.getName()+"\n"+"Balance:"+c.getWallet().getBalance());
-			} catch (CustomerNotFoundException e) {
+			} catch (CustomerNotFoundException | InsuffiecientBalanceException e) {
 				// TODO Auto-generated catch block
 				System.out.println(e);
 			}
